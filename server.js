@@ -18,8 +18,9 @@ RED.init(server, settings);
 app.use(settings.httpAdminRoot, RED.httpAdmin);
 app.use(settings.httpNodeRoot, RED.httpNode);
 
-server.listen(1880, () => {
-    console.log("Node-RED is running on http://localhost:1880/red");
+const PORT = process.env.PORT || 1880;
+server.listen(PORT, () => {
+    console.log(`Node-RED is running on http://localhost:${PORT}/red`);
 });
 
 RED.start();
